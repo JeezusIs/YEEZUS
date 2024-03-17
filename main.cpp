@@ -11,3 +11,4 @@ int main() {
     std::cout << "The game has ended\n\n";
     return 0;
 }
+
