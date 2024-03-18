@@ -9,25 +9,21 @@ class BalancedShip;
 
 
 void events::AstreoidBelt(std::shared_ptr<Spaceship> selectedShip) {
-    int possibility;
-    int startOfRange = 1;
-    int endOfRange = 2;
-    possibility = RandomNumberGenerator(startOfRange, endOfRange);
-    std::cout << "You're now entering a Astreoid Belt.\n\n";
-    float damageTaken{ 0 };
-    float normalDmg{ 30 };
-    float totalDmg{ 0 };
+    int possibility = RandomNumberGenerator(1, 2);
+    std::cout << "You're now entering an Asteroid Belt.\n\n";
+    float normalDmg = 30;  
 
     if (possibility == 1) {
-        std::cout << "Our ship has taken damage while passing the Astreoid belt.\n\n";
-        damageTaken += normalDmg * selectedShip->getHp();
-        totalDmg = normalDmg + damageTaken;
-        selectedShip->setHp(selectedShip->getHp() - totalDmg);
+        std::cout << "Our ship has taken damage while passing the Asteroid belt.\n\n";
+        float newHp = selectedShip->getHp() - normalDmg;
+        if (newHp < 0) {
+            newHp = 0; 
+        }
+        selectedShip->setHp(newHp);
     }
     else {
-        std::cout << "We've successfully passed Asteroid belt without taking any damage.\n\n";
+        std::cout << "We've successfully passed the Asteroid belt without taking any damage.\n\n";
     }
-
 };
 
 
