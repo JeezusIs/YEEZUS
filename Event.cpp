@@ -59,7 +59,7 @@ void events::SpacePirates(std::shared_ptr<Spaceship> selectedShip) {
     if (dialogueOption == 1) {
         int tributePossibility = RandomNumberGenerator(0, 2);
         std::cout << tributePossibility;
-        int tributeAmount = (tributePossibility + 1) * 10; // 10, 20, or 30 credits
+        int tributeAmount = (tributePossibility + 1) * 10; 
         selectedShip->setCash(selectedShip->getCash() - tributeAmount);
         std::cout << "Pirates have taken " << tributeAmount << " credits.\nPirates: We better not see you around here any time soon.\n\n";
     }
@@ -69,7 +69,7 @@ void events::SpacePirates(std::shared_ptr<Spaceship> selectedShip) {
             const float normalDmg = 30;
             float newHp = selectedShip->getHp() - normalDmg;
             if (newHp < 0) {
-                newHp = 0; // Prevent HP from going negative
+                newHp = 0; 
             }
             selectedShip->setHp(newHp);
             std::cout << "We've lost the battle.\n\n";
@@ -89,7 +89,7 @@ void events::SpacePirates(std::shared_ptr<Spaceship> selectedShip) {
             else {
                 std::cout << "We've failed to flee.\n\n";
                 selectedShip->setFuel(selectedShip->getFuel() - 33);
-                SpacePirates(selectedShip); // Recursive call - be careful with this, as it can lead to a stack overflow if not handled correctly
+                SpacePirates(selectedShip); 
             }
         }
     }
